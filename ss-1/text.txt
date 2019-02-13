@@ -1,0 +1,27 @@
+Cloud computing has recently emerged as one of the buzzwords in the ICT
+industry. Numerous IT vendors are promising to offer computation, storage,
+and application hosting services and to provide coverage in several continents,
+offering service-level agreements (SLA)-backed performance and uptime promises
+for their services. While these “clouds” are the natural evolution of
+traditional data centers, they are distinguished by exposing resources (computation,
+data/storage, and applications) as standards-based Web services and
+following a “utility” pricing model where customers are charged based on their
+utilization of computational resources, storage, and transfer of data. They offer
+subscription-based access to infrastructure, platforms, and applications that
+are popularly referred to as IaaS (Infrastructure as a Service), PaaS (Platform
+as a Service), and SaaS (Software as a Service). While these emerging services
+have increased interoperability and usability and reduced the cost of computation,
+application hosting, and content storage and delivery by several orders of
+magnitude, there is significant complexity involved in ensuring that applications
+and services can scale as needed to achieve consistent and reliable
+operation under peak loads.and illustrates capabilities and
+limitations of current providers of cloud computing services. This allows the
+reader to understand the mechanisms needed to harness cloud computing in
+their own respective endeavors. Finally, many open research problems that
+have arisen from the rapid uptake of cloud computing are detailed. We hope
+that this motivates the reader to address these in their own future research and
+development. We believe the book to serve as a reference for larger audience
+such as systems architects, practitioners, developers, new researchers, and
+graduate-level students. This book also comes with an associated Web site
+(hosted at http://www.manjrasoft.com/CloudBook/) containing pointers to
+advanced on-line resources.
