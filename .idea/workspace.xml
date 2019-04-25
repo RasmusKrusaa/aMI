@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b033abd7-9ac4-41f7-9f32-c9231cb95b6d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ss-3/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,15 +39,15 @@
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.open.time.8" value="2" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="README" value="1" />
           <entry key="base" value="2" />
-          <entry key="gitignore" value="1" />
+          <entry key="gitignore" value="2" />
           <entry key="py" value="17" />
           <entry key="test" value="2" />
           <entry key="train" value="1" />
@@ -56,7 +56,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PLAIN_TEXT" value="8" />
+          <entry key="PLAIN_TEXT" value="9" />
           <entry key="Python" value="17" />
         </counts>
       </usages-collector>
@@ -64,7 +64,7 @@
         <counts>
           <entry key="Python Console" value="175" />
           <entry key="dummy" value="18" />
-          <entry key="gitignore" value="20" />
+          <entry key="gitignore" value="22" />
           <entry key="py" value="15874" />
           <entry key="test" value="4" />
           <entry key="train" value="18" />
@@ -73,7 +73,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="168" />
+          <entry key="PLAIN_TEXT" value="170" />
           <entry key="Python" value="16049" />
         </counts>
       </usages-collector>
@@ -81,94 +81,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ss-1/ss-1.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31">
-              <caret line="113" column="35" selection-start-line="113" selection-start-column="24" selection-end-line="113" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-                <marker date="1549989106617" expanded="true" signature="3314:3315" ph="..." />
-                <marker date="1549989106617" expanded="true" signature="3314:5049" ph="..." />
-                <marker date="1549989106617" expanded="true" signature="5062:5063" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ss-2/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2760">
-              <caret line="151" column="51" selection-start-line="151" selection-start-column="51" selection-end-line="151" selection-end-column="51" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-                <element signature="e#476#541#0" />
-                <marker date="1551360212229" expanded="true" signature="113:217" ph="..." />
-                <marker date="1551360212229" expanded="true" signature="1903:1905" ph="..." />
-                <marker date="1551360212229" expanded="true" signature="1956:1961" ph="..." />
-                <marker date="1551360212229" expanded="true" signature="2997:3446" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ss-3/main.py">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="76" column="41" lean-forward="true" selection-start-line="76" selection-start-column="41" selection-end-line="76" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-                <element signature="e#287#607#0" />
-                <element signature="e#647#1751#0" />
-                <marker date="1551364672530" expanded="true" signature="853:1965" ph="..." />
-                <marker date="1551364672530" expanded="true" signature="1964:1965" ph="..." />
-                <marker date="1551364672530" expanded="true" signature="2128:2170" ph="..." />
-              </folding>
+            <state relative-caret-position="473">
+              <caret line="105" column="7" selection-start-line="105" selection-start-column="7" selection-end-line="105" selection-end-column="7" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ss-2/ml-100k/u1.test">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="136" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ss-2/ml-100k/u1.base">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1519981">
-              <caret line="79999" column="3" selection-start-line="79999" selection-end-line="79999" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ss-2/ml-100k/README">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="50" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ss-2/ml-100k/ua.base">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -196,11 +115,11 @@
         <option value="$PROJECT_DIR$/ss-1.py" />
         <option value="$PROJECT_DIR$/ss-1/text.txt" />
         <option value="$PROJECT_DIR$/ss-1/ss-1.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/ss-2/train" />
         <option value="$PROJECT_DIR$/ss-2/ml-100k/u1.test" />
         <option value="$PROJECT_DIR$/ss-2/main.py" />
         <option value="$PROJECT_DIR$/ss-3/main.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -236,7 +155,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -244,20 +162,11 @@
               <item name="aMI-1" type="b2602c69:ProjectViewProjectNode" />
               <item name="aMI-1" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="aMI-1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aMI-1" type="462c0819:PsiDirectoryNode" />
-              <item name="ss-1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aMI-1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aMI-1" type="462c0819:PsiDirectoryNode" />
-              <item name="ss-2" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -380,7 +289,7 @@
     <frame x="2" y="25" width="1260" height="669" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.27422002" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27339903" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -540,13 +449,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2033">
-          <caret line="107" column="7" selection-start-line="107" selection-start-column="7" selection-end-line="107" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/decorator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3458">
@@ -600,37 +502,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ss-2/ml-100k/u1.test">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="136" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ss-2/ml-100k/u1.base">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1519981">
-          <caret line="79999" column="3" selection-start-line="79999" selection-end-line="79999" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ss-2/ml-100k/README">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="50" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ss-2/ml-100k/ua.base">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/ss-1/ss-1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="31">
@@ -646,7 +517,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ss-2/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2760">
+        <state relative-caret-position="489">
           <caret line="151" column="51" selection-start-line="151" selection-start-column="51" selection-end-line="151" selection-end-column="51" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
@@ -671,6 +542,44 @@
             <marker date="1551364672530" expanded="true" signature="1964:1965" ph="..." />
             <marker date="1551364672530" expanded="true" signature="2128:2170" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ss-2/ml-100k/u1.test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="136" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ss-2/ml-100k/u1.base">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="79999" column="3" selection-start-line="79999" selection-end-line="79999" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ss-2/ml-100k/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="50" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ss-2/ml-100k/ua.base">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="105" column="7" selection-start-line="105" selection-start-column="7" selection-end-line="105" selection-end-column="7" />
         </state>
       </provider>
     </entry>
