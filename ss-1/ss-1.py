@@ -41,19 +41,25 @@ for i in range(0, len(stemmed_tokens)):
         else:
            sim_matrix[i,j] = cooccurence_sim(stemmed_tokens[i], stemmed_tokens[j])
 
-#Creating graph with value on edges equal probability according to row normalization
-#In case of dangling nodes (i.e. 0 similarity), we use alpha in networkx to handle teleportation.
+# Creating graph with value on edges equal probability according to row normalization
+# In case of dangling nodes (i.e. 0 similarity), we use alpha in networkx
+# to handle teleportation.
 for row in range(0, sim_matrix.shape[0]):
     GS_random_walk.add_node(sent_tokens[row])
+    summed_sim = sum(sim_matrix[row, ])
     for col in range(0, sim_matrix.shape[1]):
         sim = sim_matrix[row, col]
-        summed_sim = sum(sim_matrix[row, ])
         probability = sim/summed_sim
         GS_random_walk.add_edge(sent_tokens[row], sent_tokens[col], weight=probability)
 
+# Alpha (dampening factor) determines magnitude of following edges and
+# 1-alpha determines magnitude of "jumping/teleporting" between nodes.
 random_walk_pr = net.pagerank(GS_random_walk, alpha=0.90)
 
+# Sorting pageranks (dictionary -> key-value pair) based on their value.
 random_walk_pr = sorted(random_walk_pr.items(), reverse=True, key=lambda kv: kv[1])
+
+# Selecting approx 30% of document to summarize with
 summary_size = int(len(random_walk_pr) * 0.3)
 
 print("--- Simpel summary with cooccurence ---")
@@ -70,13 +76,14 @@ vectorized_document = vectorizer.fit_transform([sentences])
 #---K means clustering---
 #use sqrt(number of sentences)
 number_of_clusters = math.floor(math.sqrt(number_of_sentences))
+# n_init number of times to initialize centroids.
 model = KMeans(n_clusters=number_of_clusters, init='k-means++', n_init=1)
 model.fit(vectorized_sentences)
 
 #Graph used to compute pagerank using KMeans clustering
 GS_k_means = net.Graph()
 
-#lambda
+#lambda (relative contribution from source cluster and destination cluster)
 lambda_param = 0.85
 
 #similarity matrix
@@ -112,8 +119,8 @@ for i in range(0, number_of_sentences):
 
 for row in range(0, sim_matrix_k_means.shape[0]):
     GS_k_means.add_node(sent_tokens[row])
+    summed_sim = sum(sim_matrix_k_means[row, ])
     for col in range(0, sim_matrix_k_means.shape[1]):
-        summed_sim = sum(sim_matrix_k_means[row, ])
         if summed_sim == 0:
             GS_k_means.add_edge(sent_tokens[row], sent_tokens[col], weight=0)
         else:
@@ -121,9 +128,12 @@ for row in range(0, sim_matrix_k_means.shape[0]):
             probability = sim/summed_sim
             GS_k_means.add_edge(sent_tokens[row], sent_tokens[col], weight=probability)
 
-pr_k_means = net.pagerank(GS_k_means)
+pr_k_means = net.pagerank(GS_k_means, alpha=0.9)
 
+# Sorting pageranks (dictionary -> key-value pair) based on the values.
 pr_k_means_sorted = sorted(pr_k_means.items(), reverse=True, key=lambda kv: kv[1])
+
+# Selecting approx. 30% to summarize document with.
 summary_size = int(len(pr_k_means_sorted) * 0.3)
 
 print("--- Summary based on KMeans ---")
@@ -131,6 +141,3 @@ for i in range(0, summary_size):
     print(pr_k_means_sorted[i])
 
 file.close()
-
-#for token in word_tokens:
-#    GW.add_node(token)

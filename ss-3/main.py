@@ -1,76 +1,134 @@
 import numpy as np
 import networkx as net
 import math
+import matplotlib.pyplot as plt
 
-def create_example_graph_alg1(n_users: int):
+def create_simple_graph():
     G = net.Graph()
 
     # adding users
-    for u in range(0, n_users):
-        G.add_node(u)
+    G.add_node('u1')
+    G.add_node('u2')
+    G.add_node('u3')
 
-    # adding friendships
-    for u1 in G.nodes:
-        for u2 in G.nodes:
-            random = np.random.random()
-            if u1 != u2 and random > 0.5:
-                G.add_edge(u1, u2) # simulates friendship
+    # adding locations
+    G.add_node('l1')
+    G.add_node('l2')
+    G.add_node('l3')
+
+    # adding friendship edges
+    G.add_edge('u1', 'u3')
+    G.add_edge('u2', 'u3')
+
+    # adding visits edges
+    G.add_edge('u1', 'l1', weight=7)
+    G.add_edge('u1', 'l2', weight=3)
+    G.add_edge('u3', 'l2', weight=1)
+    G.add_edge('u3', 'l3', weight=1)
 
     return G
 
+def BCA(G : net.Graph,
+        user,
+        epsilon : float = 1e-10,
+        alpha : float = 0.85,
+        steps : int = 50):
+    p = {} # pageranks
+    d = {} # friendships
+    b = {} # size |U|
 
-def create_example_graph_alg2(n_users: int, n_locations: int):
-    G = net.Graph()
+    nodes = G.nodes
+    # all nodes that are users, i.e. 'ux'
+    users = [u for u in list(nodes) if u.startswith('u')]
 
-    # adding user nodes
-    for u in range(0, n_users):
-        user = "u{0}".format(u+1)
-        G.add_node(user)
+    # initializing pageranks and friendships
+    for i in users:
+        p[i] = 0
+        # friends are neighbors in graph
+        neighbors = G.neighbors(i)
+        friends = [u for u in list(neighbors) if u.startswith('u')]
+        d[i] = len(list(friends))
+        b[i] = 1 if i == user else 0 # b_u = 1, rest is 0
 
-    # adding location nodes
-    for l in range(0, n_locations):
-        location = "l{0}".format(l+1)
-        G.add_node(location)
-
-    # adding edges "randomly"
-    add_edges_randomly(G)
-
-
-def add_edges_randomly(G: net.Graph):
-    for node in G.nodes:
-        for neighbor in G.nodes:
-            if node == neighbor: # no edge to yourself
+    # run iterations
+    for step in range(steps):
+        # used to know if our b has converged
+        b_prev = b.copy()
+        for i in users:
+            # if our threshold has been reached user has nothing to distribute.
+            if b[i] < epsilon:
                 continue
-            else:
-                node_is_user = str.startswith(node, 'u')
-                node_is_location = str.startswith(node, 'l')
-                neighbor_is_user = str.startswith(neighbor, 'u')
-                neighbor_is_location = str.startswith(neighbor, 'l')
+            # update pageranks.
+            p[i] += (1 - alpha) * b[i]
 
-                random = np.random.random() # float between 0-1,
-                                            # used to determine whether or not to add edge
-                if random > 0.5:
-                    if node_is_user and neighbor_is_user:
-                        add_friendship_edge(G, node, neighbor)
-                    elif node_is_location and neighbor_is_user:
-                        visits = math.floor(random * 10)
-                        add_visits_edge(G, neighbor, node, weight=visits)
-                    elif node_is_user and neighbor_is_location:
-                        visits = math.floor(random * 10)
-                        add_visits_edge(G, node, neighbor, weight=visits)
+            # distribute color to neighbors
+            neighbors = G.neighbors(i)
+            friends = [u for u in list(neighbors) if u.startswith('u')]
+            for friend in friends:
+                b[friend] += alpha * b[i]/d[i]
 
+            # keep (1-alpha) yourself
+            b[i] = (1 - alpha) * b[i]
 
-def add_visits_edge(graph, node_from, node_to, visits):
-    graph.add_edge(node_from, node_to, weight=visits)
+        if b_prev == b:
+            break
 
+    # since we increase values of p in each iteration
+    # it is not ensured that p sums to 1.
+    # Fix could be to simply normalize it.
+    return p
 
-def add_friendship_edge(graph, node_from, node_to):
-    graph.add_edge(node_from, node_to)
+def FBCA(G : net.Graph,
+         user,
+         k : int):
+    # locations user has visited
+    l_u = [l for l in list(G.neighbors(user)) if l.startswith('l')]
 
+    # all locations
+    locations = [l for l in list(G.nodes) if l.startswith('l')]
+
+    # locations user has not visited
+    locations_not_visited = [l for l in locations if l not in l_u]
+
+    # different users
+    different_users = [u for u in list(G.nodes) if u.startswith('u') and u != user]
+
+    # compute PPR for all users
+    PPR = BCA(G, user)
+
+    # initializing scores of locations that user has not visited
+    scores = {}
+    for l in locations_not_visited:
+        scores[l] = 0
+
+    for u in different_users:
+        for l in locations:
+            locations_visited = [l for l in G.neighbors(u) if l.startswith('l')]
+            if l not in locations_visited: # if user has not visited location skip it
+                continue
+            n_visits = G.get_edge_data(u, l)['weight']
+            scores[l] += PPR[u] * n_visits
+
+    # sorting scores
+    sorted_scores = sorted(scores.items(), reverse=True, key=lambda kv: kv[1])
+
+    # if k exceeds length of scored locations, recommend all locations instead
+    if k < len(sorted_scores):
+        k = len(sorted_scores)
+
+    return sorted_scores[:k-1]
 
 if __name__ == '__main__':
-    G = create_example_graph_alg1(3)
-    print(G.number_of_edges())
+    G = create_simple_graph()
+
+    net.draw(G, with_labels=True)
+    plt.show()
+
+    test_user = 'u2'
+    recommendations = FBCA(G, test_user, 2)
+
+    print(recommendations)
+
     # maybe do the simple alg (alg 1)
     # and prepare for how to extend to alg 2 and 3.
 

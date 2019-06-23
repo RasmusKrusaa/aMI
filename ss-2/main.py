@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def create_graph(filename):
+    # Should be digraph, but won't change it because it might make code not working
     G = net.Graph()
 
     file = open(filename, mode='r')
@@ -34,12 +35,14 @@ def create_graph(filename):
 
     return G
 
+# vector representing the preferences of nodes for user (1/sum)
 def create_personalized_vector(user_id, graph: net.Graph):
     q_vec : dict = {}
     sum = 0
     for node in graph.nodes:
         try:
             is_int = True
+            # node = (userid, itemid) or (userid, 'user') or (itemid, 'item').
             int(node[1])
         except:
             is_int = False
@@ -51,6 +54,7 @@ def create_personalized_vector(user_id, graph: net.Graph):
             q_vec[node] = 0
 
     for item in q_vec.items():
+        # normalizing with sum of preference nodes.
         key = item[0]
         value = item[1]
         q_vec[key] = value/sum
@@ -73,11 +77,13 @@ def get_items(filename, user_id):
 def recommend_k(graph, user_id, train_items, k=10):
     q = create_personalized_vector(user_id, graph)
     pr = net.pagerank(graph, personalization=q)
+    # sort nodes based on their values (scores) in descending order.
     sorted_pr = sorted(pr.items(), reverse=True, key=lambda kv: kv[1])
 
     item_ids = []
     for pr in sorted_pr:
         node = pr[0]
+        # We only want to recommend items.
         if node[1] == 'item' and \
                 len(item_ids) < k and \
                 node[0] not in train_items:
@@ -93,7 +99,7 @@ def calculate_hits(sorted_recommended_items, sorted_test_items):
     hits = 0
     for item in sorted_recommended_items:
         k = 0
-        for test_item in sorted_test_items:
+        for test_item in sorted_test_items: # dict of itemid and rating.
             if (test_item[0] == item and k <= n) or \
                 (test_item[0] == item and test_item[1] == '5'):
                 hits += 1
@@ -112,7 +118,8 @@ def calculate_hits_2(recommended_items, test_items):
             if test_item[0] == rec_item:
                 hits += 1
     # todo: check if there even exist test items
-    # fix -> cannot calculate hits@n for 0 test items.
+    # n_rec_items has size 10 and if we only know fx 7 items the user has watched before
+    # We average with these 7 items instead.
     if n_test_items < n_rec_items:
         return hits/n_test_items
     else:
